@@ -15,8 +15,8 @@ main()
         ptrace(PTRACE_TRACEME, 0, 0, 0);
         kill(getpid(), SIGINT);
         r = getpid();
-        printf("%d\n", r);
-    } else {
+        printf("\ngetpid: %d\n", r);
+    }else{
         wait(&status);
         ptrace(PTRACE_SYSCALL, pid, 0, 0);
         wait(&status);
@@ -32,4 +32,3 @@ main()
         sleep(1);
     }
 }
-
